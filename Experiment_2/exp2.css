@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #f0f4ff, #fdfdfd);
+    color: #333;
+}
+
+header {
+    background: linear-gradient(90deg, #0a6cf1, #6c5ce7);
+    padding: 15px 30px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    background-color: white;
+    padding: 60px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.hero h1 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.hero span {
+    color: #6c5ce7;
+}
+
+.hero p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.search-box input {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-box button {
+    padding: 10px 22px;
+    background: linear-gradient(90deg, #0a6cf1, #00b894);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    opacity: 0.85;
+}
+
+.hero-image img {
+    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: 0.3s;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+.jobs {
+    padding: 45px 30px;
+}
+
+.job-card {
+    background-color: white;
+    padding: 18px;
+    margin-bottom: 18px;
+    border-left: 5px solid #0a6cf1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+.job-card:hover {
+    transform: translateY(-4px);
+    border-left-color: #00b894;
+}
+
+.job-card button {
+    margin-top: 10px;
+    padding: 7px 14px;
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.job-card button:hover {
+    background-color: #00b894;
+}
+
+footer {
+    background: linear-gradient(90deg, #2d3436, #000);
+    color: #ccc;
+    padding: 35px;
+    margin-top: 40px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+}
+
+footer ul li {
+    margin-bottom: 6px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+footer ul li:hover {
+    color: #00b894;
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 13px;
+    text-align: center;
+    color: #888;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+}
