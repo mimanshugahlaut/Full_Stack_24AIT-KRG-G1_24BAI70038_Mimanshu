@@ -1,1 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exp 4 - Dynamic Job Cards</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        header {
+            background-color: #0a6cf1;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            background-color: #6c5ce7;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #00b894;
+        }
+
+        /* FORM */
+        .form-section {
+            background: white;
+            margin: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        form input,
+        form textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            padding: 10px;
+            background-color: #0a6cf1;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #00b894;
+        }
+
+        /* JOB CARDS */
+        .jobs {
+            margin: 30px;
+        }
+
+        #jobCards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .job-card {
+            background: white;
+            padding: 15px;
+            border-left: 5px solid #0a6cf1;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: 0.3s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-4px);
+            border-left-color: #00b894;
+        }
+
+        .job-card h3 {
+            margin: 0;
+        }
+
+        .job-card p {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>Job Posting Portal</h2>
+        <a href="exp3.html" class="back-btn">← Back to Search</a>
+    </header>
+
+    <section class="form-section">
+        <h3>Post a Job</h3>
+        <form id="jobForm">
+            <input type="text" id="title" placeholder="Job Title" required>
+            <input type="text" id="company" placeholder="Company Name" required>
+            <input type="text" id="location" placeholder="Location" required>
+            <textarea id="description" placeholder="Job Description" rows="3" required></textarea>
+            <button type="submit">Add Job</button>
+        </form>
+    </section>
+
+    <section class="jobs">
+        <h3>Available Jobs</h3>
+        <div id="jobCards"></div>
+    </section>
+
+    <script>
+        const form = document.getElementById("jobForm");
+        const jobCards = document.getElementById("jobCards");
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault(); // Stop page reload
+
+            const title = document.getElementById("title").value;
+            const company = document.getElementById("company").value;
+            const location = document.getElementById("location").value;
+            const description = document.getElementById("description").value;
+
+            const card = document.createElement("div");
+            card.classList.add("job-card");
+
+            card.innerHTML = `
+        <h3>${title}</h3>
+        <p><strong>Company:</strong> ${company}</p>
+        <p><strong>Location:</strong> ${location}</p>
+        <p>${description}</p>
+    `;
+
+            jobCards.appendChild(card);
+
+            form.reset();
+        });
+    </script>
+
+</body>
+
+</html>
