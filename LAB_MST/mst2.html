@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .add-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+        }
+
+        .rem-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+        }
+
+        ul {
+            margin-top: 20px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>My Shopping List</h3>
+    <div class="controls">
+        <input type="text" id="itemInput" placeholder="Item name...">
+        <button class="add-btn" onclick="addItem()">Add Item</button>
+        <button class="rem-btn" onclick="removeItem()">Remove Last</button>
+    </div>
+
+    <ul id="itemList">
+    </ul>
+
+    <script>
+        var list = document.getElementById('itemList');
+
+        function addItem() {
+            var input = document.getElementById('itemInput');
+            if (input.value !== "") {
+                var li = document.createElement("li"); 
+                li.innerText = input.value;            
+                list.appendChild(li);                  
+                input.value = "";                      
+            }
+        }
+
+        function removeItem() {
+            var items = list.getElementsByTagName("li");
+            if (items.length > 0) {
+                list.removeChild(items[items.length - 1]); 
+            }
+        }
+    </script>
+
+</body>
+
+</html>
